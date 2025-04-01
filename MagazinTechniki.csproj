@@ -1,0 +1,710 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C8EFDA75-A0E6-4FA1-82D1-A6490813A368}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>MagazinTechniki</RootNamespace>
+    <AssemblyName>MagazinTechniki</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>f6ae9fef-13f6-431d-bc4c-fca015280ddd.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MySql.Data, Version=8.1.0.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Program Files (x86)\MySQL\MySQL Connector NET 8.1.0\MySql.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Admin\AdminClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminClient.Designer.cs">
+      <DependentUpon>AdminClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminAddOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminAddOrder.Designer.cs">
+      <DependentUpon>AdminAddOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminAddOrderKorzina.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminAddOrderKorzina.Designer.cs">
+      <DependentUpon>AdminAddOrderKorzina.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AddUsers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\AddUsers.Designer.cs">
+      <DependentUpon>AddUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AddSupplier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\AddSupplier.Designer.cs">
+      <DependentUpon>AddSupplier.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AddRole.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\AddRole.Designer.cs">
+      <DependentUpon>AddRole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AddCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\AddCategory.Designer.cs">
+      <DependentUpon>AddCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminSpravochnik.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminSpravochnik.Designer.cs">
+      <DependentUpon>AdminSpravochnik.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminOrder.Designer.cs">
+      <DependentUpon>AdminOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AddProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\AddProduct.Designer.cs">
+      <DependentUpon>AddProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Admin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\Admin.Designer.cs">
+      <DependentUpon>Admin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Autorisation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Autorisation.Designer.cs">
+      <DependentUpon>Autorisation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminProducts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminProducts.Designer.cs">
+      <DependentUpon>AdminProducts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\EditProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\EditProduct.Designer.cs">
+      <DependentUpon>EditProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Connect.cs" />
+    <Compile Include="Admin\EditCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\EditCategory.Designer.cs">
+      <DependentUpon>EditCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\EditRole.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\EditRole.Designer.cs">
+      <DependentUpon>EditRole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\EditSupplier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\EditSupplier.Designer.cs">
+      <DependentUpon>EditSupplier.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\EditUsers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\EditUsers.Designer.cs">
+      <DependentUpon>EditUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CurrentUser.cs" />
+    <Compile Include="Admin\EditOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\EditOrder.Designer.cs">
+      <DependentUpon>EditOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\EditClients.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\EditClients.Designer.cs">
+      <DependentUpon>EditClients.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AddClients.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\AddClients.Designer.cs">
+      <DependentUpon>AddClients.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\ManagerOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manager\ManagerOrder.Designer.cs">
+      <DependentUpon>ManagerOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\ManagerClients.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manager\ManagerClients.Designer.cs">
+      <DependentUpon>ManagerClients.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\ManagerProducts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manager\ManagerProducts.Designer.cs">
+      <DependentUpon>ManagerProducts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Manager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manager\Manager.Designer.cs">
+      <DependentUpon>Manager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminOtchet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminOtchet.Designer.cs">
+      <DependentUpon>AdminOtchet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Admin\AdminUsers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminUsers.Designer.cs">
+      <DependentUpon>AdminUsers.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Admin\AddClients.resx">
+      <DependentUpon>AddClients.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\AdminClient.resx">
+      <DependentUpon>AdminClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\AdminAddOrder.resx">
+      <DependentUpon>AdminAddOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\AdminAddOrderKorzina.resx">
+      <DependentUpon>AdminAddOrderKorzina.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\AddUsers.resx">
+      <DependentUpon>AddUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\AddSupplier.resx">
+      <DependentUpon>AddSupplier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\AddRole.resx">
+      <DependentUpon>AddRole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\AddCategory.resx">
+      <DependentUpon>AddCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\AdminSpravochnik.resx">
+      <DependentUpon>AdminSpravochnik.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\AdminOrder.resx">
+      <DependentUpon>AdminOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\AddProduct.resx">
+      <DependentUpon>AddProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\Admin.resx">
+      <DependentUpon>Admin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Autorisation.resx">
+      <DependentUpon>Autorisation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\AdminProducts.resx">
+      <DependentUpon>AdminProducts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\EditProduct.resx">
+      <DependentUpon>EditProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\EditCategory.resx">
+      <DependentUpon>EditCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\EditRole.resx">
+      <DependentUpon>EditRole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\EditSupplier.resx">
+      <DependentUpon>EditSupplier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\EditUsers.resx">
+      <DependentUpon>EditUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\EditOrder.resx">
+      <DependentUpon>EditOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\EditClients.resx">
+      <DependentUpon>EditClients.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manager\ManagerOrder.resx">
+      <DependentUpon>ManagerOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manager\ManagerClients.resx">
+      <DependentUpon>ManagerClients.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manager\ManagerProducts.resx">
+      <DependentUpon>ManagerProducts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manager\Manager.resx">
+      <DependentUpon>Manager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\AdminOtchet.resx">
+      <DependentUpon>AdminOtchet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Admin\AdminUsers.resx">
+      <DependentUpon>AdminUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\c71ba709ae020a84c7d33900bde09b41.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\glaz2.png" />
+    <None Include="Resources\glaz.png" />
+    <None Include="Resources\Клиенты.png" />
+    <None Include="Resources\ДобавлениеТовара.png" />
+    <None Include="Resources\Редач.png" />
+    <None Include="Resources\Назад.png" />
+    <None Include="Resources\Отчет.png" />
+    <None Include="Resources\Редактировать.png" />
+    <None Include="Resources\Добавить.png" />
+    <None Include="Resources\ФонДляОкон.png" />
+    <None Include="Resources\Выход.png" />
+    <None Include="Resources\Корзина.png" />
+    <None Include="Resources\Пользователь.png" />
+    <None Include="Resources\Заказы.png" />
+    <None Include="Resources\Товары.png" />
+    <None Include="Resources\Категории.png" />
+    <None Include="Resources\Сотрудники.png" />
+    <None Include="Resources\ИконкаДляГлавСтр.png" />
+    <None Include="Resources\ФонГлСтр.png" />
+    <None Include="Resources\274-2748812_login-name-circle-hd-png-download.png" />
+    <Content Include="f6ae9fef-13f6-431d-bc4c-fca015280ddd.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\air_conditioner.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\apple_juicer.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\auto_off_kettle.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\bagless_vacuum_cleaner.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\basic_food_processor.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\built_in_microwave.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\ceiling_air_conditioner.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\chopper_food_processor.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\citrus_juicer.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\convection_microwave.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\cordless_iron.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\defrost_microwave.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\dough_mixer_food_processor.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\food_processor.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\fresh_zone_refrigerator.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\front_load_washing_machine.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\hdr_tv.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Images\air_conditioner.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Images\apple_juicer.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Images\auto_off_kettle.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Images\bagless_vacuum_cleaner.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Images\basic_food_processor.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Images\built_in_microwave.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Images\ceiling_air_conditioner.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Images\chopper_food_processor.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Images\citrus_juicer.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Images\convection_microwave.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Images\cordless_iron.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Images\defrost_microwave.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Images\dough_mixer_food_processor.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Images\food_processor.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Images\fresh_zone_refrigerator.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Images\front_load_washing_machine.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Images\hdr_tv.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Images\iron.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Images\juicer.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Images\kettle.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Images\kettle_with_temperature_control.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Images\lcd_iron.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Images\leak_protection_washing_machine.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Images\manual_juicer.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Images\microwave.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Images\narrow_washing_machine.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Images\portable_air_conditioner.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Images\professional_food_processor.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Images\qled_tv.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Images\quick_boiling_kettle.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Images\refrigerator.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Images\robot_vacuum_cleaner.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Images\side_by_side_refrigerator.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Images\single_refrigerator.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Images\slow_juicer.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Images\smart_tv.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Images\split_system_air_conditioner.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Images\stainless_kettle.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Images\steam_generator_iron.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Images\steam_iron.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Images\table_microwave.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Images\total_no_frost_refrigerator.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Images\tv_55.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Images\tv_65.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Images\upright_vacuum_cleaner.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Images\vacuum_cleaner.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Images\washer_dryer.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Images\washing_machine.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Images\water_filter_vacuum_cleaner.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Images\wifi_air_conditioner.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Images\zaglushka.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\iron.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\juicer.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\kettle.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\kettle_with_temperature_control.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\lcd_iron.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\leak_protection_washing_machine.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\manual_juicer.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\microwave.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\narrow_washing_machine.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\portable_air_conditioner.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\professional_food_processor.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\qled_tv.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\quick_boiling_kettle.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\refrigerator.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\robot_vacuum_cleaner.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\side_by_side_refrigerator.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\single_refrigerator.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\slow_juicer.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\smart_tv.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\split_system_air_conditioner.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\stainless_kettle.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\steam_generator_iron.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\steam_iron.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\table_microwave.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\total_no_frost_refrigerator.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\tv_55.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\tv_65.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\upright_vacuum_cleaner.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\vacuum_cleaner.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\washer_dryer.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\washing_machine.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\water_filter_vacuum_cleaner.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\wifi_air_conditioner.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\zaglushka.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\c71ba709ae020a84c7d33900bde0c9b41.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>4</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Word">
+      <Guid>{00020905-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>8</VersionMajor>
+      <VersionMinor>4</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
