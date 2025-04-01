@@ -33,6 +33,16 @@ namespace MagazinTechniki
 
             bool isAuthenticated = false;
 
+            // Вход под стандратным admin / admin
+            if (Properties.Settings.Default.userlogin == login.Text && Properties.Settings.Default.userpwd == pass.Text)
+            {
+                FormImportAndRestore form = new FormImportAndRestore();
+                form.Show();
+                Hide();
+
+                return;
+            }
+
             if (UserLogin.Length != 0)
             {
                 using (MySqlConnection con = new MySqlConnection(conn))

@@ -14,5 +14,11 @@
     <Setting Name="db" Type="System.String" Scope="User">
       <Value Profile="(Default)">storehardware</Value>
     </Setting>
+    <Setting Name="userlogin" Type="System.String" Scope="User">
+      <Value Profile="(Default)">admin</Value>
+    </Setting>
+    <Setting Name="userpwd" Type="System.String" Scope="User">
+      <Value Profile="(Default)">admin</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -198,6 +198,12 @@
     <Compile Include="Admin\AddClients.Designer.cs">
       <DependentUpon>AddClients.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormImportAndRestore.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormImportAndRestore.Designer.cs">
+      <DependentUpon>FormImportAndRestore.cs</DependentUpon>
+    </Compile>
     <Compile Include="Manager\ManagerOrder.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -298,6 +304,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\EditClients.resx">
       <DependentUpon>EditClients.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormImportAndRestore.resx">
+      <DependentUpon>FormImportAndRestore.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Manager\ManagerOrder.resx">
       <DependentUpon>ManagerOrder.cs</DependentUpon>
