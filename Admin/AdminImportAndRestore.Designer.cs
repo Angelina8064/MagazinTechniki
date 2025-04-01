@@ -52,6 +52,7 @@ namespace MagazinTechniki
             this.buttonImport.TabIndex = 95;
             this.buttonImport.Text = "Импорт";
             this.buttonImport.UseVisualStyleBackColor = false;
+            this.buttonImport.Click += new System.EventHandler(this.buttonImport_Click);
             // 
             // label1
             // 
@@ -75,6 +76,7 @@ namespace MagazinTechniki
             this.comboBoxTable.Name = "comboBoxTable";
             this.comboBoxTable.Size = new System.Drawing.Size(434, 33);
             this.comboBoxTable.TabIndex = 93;
+            this.comboBoxTable.Click += new System.EventHandler(this.comboBoxTable_Click);
             // 
             // textboxDirectory
             // 
@@ -83,6 +85,7 @@ namespace MagazinTechniki
             this.textboxDirectory.Location = new System.Drawing.Point(27, 183);
             this.textboxDirectory.MaxLength = 50;
             this.textboxDirectory.Name = "textboxDirectory";
+            this.textboxDirectory.ReadOnly = true;
             this.textboxDirectory.Size = new System.Drawing.Size(351, 31);
             this.textboxDirectory.TabIndex = 92;
             // 
@@ -126,6 +129,7 @@ namespace MagazinTechniki
             this.buttonDirectory.TabIndex = 89;
             this.buttonDirectory.Text = "Обзор";
             this.buttonDirectory.UseVisualStyleBackColor = false;
+            this.buttonDirectory.Click += new System.EventHandler(this.buttonDirectory_Click);
             // 
             // label2
             // 
