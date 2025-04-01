@@ -70,6 +70,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\AdminImportAndRestore.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminImportAndRestore.Designer.cs">
+      <DependentUpon>AdminImportAndRestore.cs</DependentUpon>
+    </Compile>
     <Compile Include="Admin\AdminClient.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -198,10 +204,10 @@
     <Compile Include="Admin\AddClients.Designer.cs">
       <DependentUpon>AddClients.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormImportAndRestore.cs">
+    <Compile Include="ImportAndRestore\FormImportAndRestore.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormImportAndRestore.Designer.cs">
+    <Compile Include="ImportAndRestore\FormImportAndRestore.Designer.cs">
       <DependentUpon>FormImportAndRestore.cs</DependentUpon>
     </Compile>
     <Compile Include="Manager\ManagerOrder.cs">
@@ -266,6 +272,9 @@
     <EmbeddedResource Include="Admin\AddCategory.resx">
       <DependentUpon>AddCategory.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Admin\AdminImportAndRestore.resx">
+      <DependentUpon>AdminImportAndRestore.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Admin\AdminSpravochnik.resx">
       <DependentUpon>AdminSpravochnik.cs</DependentUpon>
     </EmbeddedResource>
@@ -305,7 +314,7 @@
     <EmbeddedResource Include="Admin\EditClients.resx">
       <DependentUpon>EditClients.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormImportAndRestore.resx">
+    <EmbeddedResource Include="ImportAndRestore\FormImportAndRestore.resx">
       <DependentUpon>FormImportAndRestore.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Manager\ManagerOrder.resx">

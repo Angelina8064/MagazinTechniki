@@ -53,7 +53,6 @@
             this.labelSurname = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.buttonImport = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -356,31 +355,19 @@
             this.pictureBox8.TabIndex = 73;
             this.pictureBox8.TabStop = false;
             // 
-            // buttonImport
-            // 
-            this.buttonImport.BackColor = System.Drawing.Color.SlateGray;
-            this.buttonImport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonImport.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonImport.ForeColor = System.Drawing.Color.Black;
-            this.buttonImport.Location = new System.Drawing.Point(737, 606);
-            this.buttonImport.Name = "buttonImport";
-            this.buttonImport.Size = new System.Drawing.Size(222, 43);
-            this.buttonImport.TabIndex = 75;
-            this.buttonImport.Text = "Импорт";
-            this.buttonImport.UseVisualStyleBackColor = false;
-            // 
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.SlateGray;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button2.ForeColor = System.Drawing.Color.Black;
-            this.button2.Location = new System.Drawing.Point(988, 606);
+            this.button2.Location = new System.Drawing.Point(901, 600);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(222, 43);
+            this.button2.Size = new System.Drawing.Size(320, 63);
             this.button2.TabIndex = 76;
-            this.button2.Text = "Восстановление БД";
+            this.button2.Text = "Восстановление Импорт БД";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // Admin
             // 
@@ -390,7 +377,6 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1233, 681);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.buttonImport);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.pictureBox8);
             this.Controls.Add(this.labelSurname);
@@ -459,7 +445,6 @@
         private System.Windows.Forms.Label labelSurname;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.PictureBox pictureBox8;
-        private System.Windows.Forms.Button buttonImport;
         private System.Windows.Forms.Button button2;
     }
 }
