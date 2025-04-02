@@ -39,7 +39,11 @@ namespace MagazinTechniki
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.btnShowPass = new System.Windows.Forms.Button();
+            this.captchaImage = new System.Windows.Forms.PictureBox();
+            this.inputcaptcha = new System.Windows.Forms.TextBox();
+            this.updatecaptcha = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.captchaImage)).BeginInit();
             this.SuspendLayout();
             // 
             // login
@@ -157,6 +161,43 @@ namespace MagazinTechniki
             this.btnShowPass.UseVisualStyleBackColor = false;
             this.btnShowPass.Click += new System.EventHandler(this.btnShowPass_Click_1);
             // 
+            // captchaImage
+            // 
+            this.captchaImage.BackColor = System.Drawing.Color.Linen;
+            this.captchaImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.captchaImage.Location = new System.Drawing.Point(155, 295);
+            this.captchaImage.Name = "captchaImage";
+            this.captchaImage.Size = new System.Drawing.Size(130, 50);
+            this.captchaImage.TabIndex = 24;
+            this.captchaImage.TabStop = false;
+            this.captchaImage.Visible = false;
+            // 
+            // inputcaptcha
+            // 
+            this.inputcaptcha.BackColor = System.Drawing.Color.Linen;
+            this.inputcaptcha.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.inputcaptcha.Location = new System.Drawing.Point(155, 351);
+            this.inputcaptcha.Name = "inputcaptcha";
+            this.inputcaptcha.Size = new System.Drawing.Size(130, 31);
+            this.inputcaptcha.TabIndex = 25;
+            this.inputcaptcha.Visible = false;
+            // 
+            // updatecaptcha
+            // 
+            this.updatecaptcha.BackColor = System.Drawing.Color.SlateGray;
+            this.updatecaptcha.BackgroundImage = global::MagazinTechniki.Properties.Resources.обновить;
+            this.updatecaptcha.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.updatecaptcha.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.updatecaptcha.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.updatecaptcha.ForeColor = System.Drawing.Color.Black;
+            this.updatecaptcha.Location = new System.Drawing.Point(120, 351);
+            this.updatecaptcha.Name = "updatecaptcha";
+            this.updatecaptcha.Size = new System.Drawing.Size(29, 28);
+            this.updatecaptcha.TabIndex = 26;
+            this.updatecaptcha.UseVisualStyleBackColor = false;
+            this.updatecaptcha.Visible = false;
+            this.updatecaptcha.Click += new System.EventHandler(this.updatecaptcha_Click);
+            // 
             // Autorisation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -165,6 +206,9 @@ namespace MagazinTechniki
             this.BackgroundImage = global::MagazinTechniki.Properties.Resources.c71ba709ae020a84c7d33900bde09b41;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(346, 471);
+            this.Controls.Add(this.updatecaptcha);
+            this.Controls.Add(this.inputcaptcha);
+            this.Controls.Add(this.captchaImage);
             this.Controls.Add(this.btnShowPass);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.pictureBox1);
@@ -181,6 +225,7 @@ namespace MagazinTechniki
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.captchaImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -197,6 +242,9 @@ namespace MagazinTechniki
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnShowPass;
+        private System.Windows.Forms.PictureBox captchaImage;
+        private System.Windows.Forms.TextBox inputcaptcha;
+        private System.Windows.Forms.Button updatecaptcha;
     }
 }
 

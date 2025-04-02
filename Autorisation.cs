@@ -19,91 +19,120 @@ namespace MagazinTechniki
         string conn = Connect.conn;
         private bool passwordVisible = false; // Флаг видимости пароля
 
+        private CaptchaGenerator _captchaGenerator = new CaptchaGenerator();
+        private string _currentCaptcha;
+        private DateTime _lastFailedAttempt = DateTime.MinValue;
+        private int _failedAttempts = 0;
+        private int _blockDurationSeconds = 10;
+
         public Autorisation()
         {
             InitializeComponent();
+
+            HideCaptchaAndControls();
         }
 
         // Обработчик кнопки входа
         private void buttonEntry_Click(object sender, EventArgs e)
-        { 
+        {
+            if (DateTime.Now - _lastFailedAttempt < TimeSpan.FromSeconds(_blockDurationSeconds))
+            {
+                MessageBox.Show($"Вы были заблокированы на {_blockDurationSeconds} секунд из-за слишком большого количества неудачных попыток входа.");
+                return;
+            }
+
             string UserLogin = login.Text;
             string UserPass = pass.Text;
-            string hashedPass = HashPassword(UserPass); // Хеширование пароля
+            string hashedPass = HashPassword(UserPass);
 
             bool isAuthenticated = false;
 
             if (UserLogin.Length != 0)
             {
+                if (_failedAttempts > 0 && inputcaptcha.Text != _currentCaptcha)
+                {
+                    MessageBox.Show("Неверная CAPTCHA. Пожалуйста, попробуйте снова.");
+                    UpdateCaptcha();
+                    return;
+                }
+
                 using (MySqlConnection con = new MySqlConnection(conn))
                 {
                     try
                     {
                         con.Open();
 
-                        // SQL-запрос для проверки учетных данных
                         using (MySqlCommand cmd = new MySqlCommand("SELECT UserRole, UserSurname FROM user WHERE UserLogin = @UserLogin AND UserPassword = @UserPassword", con))
                         {
                             cmd.Parameters.AddWithValue("@UserLogin", UserLogin);
                             cmd.Parameters.AddWithValue("@UserPassword", hashedPass);
-                            try
+
+                            using (MySqlDataReader reader = cmd.ExecuteReader())
                             {
-                                using (MySqlDataReader reader = cmd.ExecuteReader())
+                                if (reader.HasRows)
                                 {
-                                    if (reader.HasRows)
+                                    reader.Read();
+                                    CurrentUser.Surname = reader["UserSurname"].ToString();
+                                    CurrentUser.Role = reader["UserRole"].ToString();
+                                    isAuthenticated = true;
+
+                                    if (CurrentUser.Role == "1")
                                     {
-                                        reader.Read();
-
-                                        CurrentUser.Surname = reader["UserSurname"].ToString();
-                                        CurrentUser.Role = reader["UserRole"].ToString();
-
-                                        isAuthenticated = true;
-
-                                        if (CurrentUser.Role == "1")
-                                        {
-                                            Admin form = new Admin();
-                                            form.Show();
-                                            Hide();
-                                        }
-                                        else if (CurrentUser.Role == "2")
-                                        {
-                                            Manager form = new Manager();
-                                            form.Show();
-                                            Hide();
-                                        }
-                                    }
-                                    // Вход под стандратным admin / admin
-                                    else if (Properties.Settings.Default.userlogin == login.Text && Properties.Settings.Default.userpwd == pass.Text)
-                                    {
-                                        FormImportAndRestore form = new FormImportAndRestore();
+                                        Admin form = new Admin();
                                         form.Show();
                                         Hide();
-
-                                        return;
                                     }
-                                    else
+                                    else if (CurrentUser.Role == "2")
                                     {
-                                        MessageBox.Show("Введен не правильный логин или пароль.");
+                                        Manager form = new Manager();
+                                        form.Show();
+                                        Hide();
                                     }
                                 }
-                            }
-                            catch (Exception ex)
-                            {
-                                MessageBox.Show($"Ошибка: {ex.Message}");
+                                else if (Properties.Settings.Default.userlogin == login.Text &&
+                                         Properties.Settings.Default.userpwd == pass.Text)
+                                {
+                                    AdminImportAndRestore form = new AdminImportAndRestore();
+                                    form.Show();
+                                    Hide();
+                                    return;
+                                }
                             }
                         }
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Ошибка подключения: " + ex.Message);
+                        MessageBox.Show($"Ошибка: {ex.Message}");
                     }
                 }
-                // Сброс полей при неудачной аутентификации
+
                 if (!isAuthenticated)
                 {
+                    _failedAttempts++;
+
+                    if (_failedAttempts == 1)
+                    {
+                        ShowCaptchaAndControls();
+
+                        UpdateCaptcha();
+                    }
+                    else if (_failedAttempts >= 3)
+                    {
+                        _lastFailedAttempt = DateTime.Now;
+                        MessageBox.Show("Слишком много неудачных попыток. Попробуйте снова через 10 секунд.");
+                    }
+
                     login.Clear();
                     pass.Clear();
-                    login.Focus(); 
+                    login.Focus();
+                    MessageBox.Show("Введен неправильный логин или пароль.");
+                }
+                else
+                {
+                    _failedAttempts = 0;
+
+                    HideCaptchaAndControls();
+
                 }
             }
             else
@@ -112,6 +141,29 @@ namespace MagazinTechniki
             }
         }
 
+        private void UpdateCaptcha()
+        {
+            _currentCaptcha = _captchaGenerator.GenerateCaptcha();
+            captchaImage.Image = _captchaGenerator.RenderCaptcha(_currentCaptcha);
+        }
+
+        private void ShowCaptchaAndControls()
+        {
+            captchaImage.Visible = true;
+            inputcaptcha.Visible = true;
+            updatecaptcha.Visible = true;
+        }
+
+        private void HideCaptchaAndControls()
+        {
+            captchaImage.Visible = false;
+            inputcaptcha.Visible = false;
+            updatecaptcha.Visible = false;
+        }
+        private void updatecaptcha_Click(object sender, EventArgs e)
+        {
+            UpdateCaptcha();
+        }
         // Хеширование пароля с использованием SHA256
         private string HashPassword(string UserPass)
         {
@@ -183,5 +235,7 @@ namespace MagazinTechniki
             pass.Focus();
             pass.SelectionStart = pass.Text.Length;
         }
+
+
     }
 }

@@ -76,7 +76,6 @@ namespace MagazinTechniki
             this.comboBoxTable.Name = "comboBoxTable";
             this.comboBoxTable.Size = new System.Drawing.Size(434, 33);
             this.comboBoxTable.TabIndex = 93;
-            this.comboBoxTable.Click += new System.EventHandler(this.comboBoxTable_Click);
             // 
             // textboxDirectory
             // 
@@ -116,6 +115,7 @@ namespace MagazinTechniki
             this.buttonRestore.TabIndex = 90;
             this.buttonRestore.Text = "Восстановление БД";
             this.buttonRestore.UseVisualStyleBackColor = false;
+            this.buttonRestore.Click += new System.EventHandler(this.buttonRestore_Click);
             // 
             // buttonDirectory
             // 

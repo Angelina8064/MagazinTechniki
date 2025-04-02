@@ -160,6 +160,7 @@
     <Compile Include="Admin\EditProduct.Designer.cs">
       <DependentUpon>EditProduct.cs</DependentUpon>
     </Compile>
+    <Compile Include="CaptchaGenerator.cs" />
     <Compile Include="Connect.cs" />
     <Compile Include="Admin\EditCategory.cs">
       <SubType>Form</SubType>
@@ -363,6 +364,7 @@
     <None Include="Resources\c71ba709ae020a84c7d33900bde09b41.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\обновить.png" />
     <None Include="Resources\glaz2.png" />
     <None Include="Resources\glaz.png" />
     <None Include="Resources\Клиенты.png" />
