@@ -24,11 +24,13 @@ namespace MagazinTechniki
         private DateTime _lastFailedAttempt = DateTime.MinValue;
         private int _failedAttempts = 0;
         private int _blockDurationSeconds = 10;
+        private System.Windows.Forms.Timer blockTimer;
 
         public Autorisation()
         {
             InitializeComponent();
 
+            InitializeBlockTimer();
             HideCaptchaAndControls();
         }
 
@@ -49,11 +51,26 @@ namespace MagazinTechniki
 
             if (UserLogin.Length != 0)
             {
-                if (_failedAttempts > 0 && inputcaptcha.Text != _currentCaptcha)
+                // Проверка капчи только после первой неудачной попытки
+                if (_failedAttempts > 0)
                 {
-                    MessageBox.Show("Неверная CAPTCHA. Пожалуйста, попробуйте снова.");
-                    UpdateCaptcha();
-                    return;
+                    if (inputcaptcha.Text != _currentCaptcha)
+                    {
+                        MessageBox.Show("Неверная CAPTCHA. Вы заблокированы на 10 секунд.");
+                        _lastFailedAttempt = DateTime.Now;
+
+                        login.Clear();
+                        pass.Clear();
+                        inputcaptcha.Clear();
+
+                        DisableControls();
+                        
+                        blockTimer.Start();
+                        
+                        UpdateCaptcha();
+                        
+                        return;
+                    }
                 }
 
                 using (MySqlConnection con = new MySqlConnection(conn))
@@ -113,13 +130,7 @@ namespace MagazinTechniki
                     if (_failedAttempts == 1)
                     {
                         ShowCaptchaAndControls();
-
                         UpdateCaptcha();
-                    }
-                    else if (_failedAttempts >= 3)
-                    {
-                        _lastFailedAttempt = DateTime.Now;
-                        MessageBox.Show("Слишком много неудачных попыток. Попробуйте снова через 10 секунд.");
                     }
 
                     login.Clear();
@@ -130,15 +141,57 @@ namespace MagazinTechniki
                 else
                 {
                     _failedAttempts = 0;
-
                     HideCaptchaAndControls();
-
                 }
             }
             else
             {
                 MessageBox.Show("Логин не может быть пустым.");
             }
+        }
+
+        #region Captcha
+        private void InitializeBlockTimer()
+        {
+            blockTimer = new System.Windows.Forms.Timer();
+            blockTimer.Interval = 1000; // 1 секунда
+            blockTimer.Tick += BlockTimer_Tick;
+        }
+
+        private void BlockTimer_Tick(object sender, EventArgs e)
+        {
+            var timeLeft = _blockDurationSeconds - (int)(DateTime.Now - _lastFailedAttempt).TotalSeconds;
+            
+            if (timeLeft <= 0)
+            {
+                blockTimer.Stop();
+                EnableControls();
+                buttonEntry.Text = "Войти";
+            }
+            else
+            {
+                buttonEntry.Text = $"({timeLeft} сек)";
+            }
+        }
+
+        private void DisableControls()
+        {
+            login.Enabled = false;
+            pass.Enabled = false;
+            buttonEntry.Enabled = false;
+            inputcaptcha.Enabled = false;
+            updatecaptcha.Enabled = false;
+            btnShowPass.Enabled = false;
+        }
+
+        private void EnableControls()
+        {
+            login.Enabled = true;
+            pass.Enabled = true;
+            buttonEntry.Enabled = true;
+            inputcaptcha.Enabled = true;
+            updatecaptcha.Enabled = true;
+            btnShowPass.Enabled = true;
         }
 
         private void UpdateCaptcha()
@@ -162,8 +215,11 @@ namespace MagazinTechniki
         }
         private void updatecaptcha_Click(object sender, EventArgs e)
         {
+            inputcaptcha.Clear();
             UpdateCaptcha();
         }
+        #endregion
+
         // Хеширование пароля с использованием SHA256
         private string HashPassword(string UserPass)
         {
@@ -235,7 +291,6 @@ namespace MagazinTechniki
             pass.Focus();
             pass.SelectionStart = pass.Text.Length;
         }
-
 
     }
 }
