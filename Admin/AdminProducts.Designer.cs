@@ -62,6 +62,11 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.linkLabelUser = new System.Windows.Forms.LinkLabel();
             this.label9 = new System.Windows.Forms.Label();
+            this.btnPrev = new System.Windows.Forms.Button();
+            this.btnNext = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.lblPageInfo = new System.Windows.Forms.Label();
+            this.lblRecordsInfo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -138,7 +143,7 @@
             this.label3.Font = new System.Drawing.Font("Book Antiqua", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label3.Location = new System.Drawing.Point(109, 87);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(124, 32);
+            this.label3.Size = new System.Drawing.Size(125, 32);
             this.label3.TabIndex = 25;
             this.label3.Text = "Техники";
             // 
@@ -149,7 +154,7 @@
             this.label2.Font = new System.Drawing.Font("Book Antiqua", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label2.Location = new System.Drawing.Point(118, 57);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(124, 32);
+            this.label2.Size = new System.Drawing.Size(125, 32);
             this.label2.TabIndex = 24;
             this.label2.Text = "Бытовой";
             // 
@@ -160,7 +165,7 @@
             this.label1.Font = new System.Drawing.Font("Book Antiqua", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label1.Location = new System.Drawing.Point(128, 29);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(125, 32);
+            this.label1.Size = new System.Drawing.Size(126, 32);
             this.label1.TabIndex = 23;
             this.label1.Text = "Магазин";
             // 
@@ -180,13 +185,13 @@
             this.dataGridView1.BackgroundColor = System.Drawing.Color.SlateGray;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.dataGridView1.Location = new System.Drawing.Point(285, 79);
+            this.dataGridView1.Location = new System.Drawing.Point(285, 85);
             this.dataGridView1.Name = "dataGridView1";
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.SlateGray;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView1.RowTemplate.Height = 90;
-            this.dataGridView1.Size = new System.Drawing.Size(936, 526);
+            this.dataGridView1.RowTemplate.Height = 95;
+            this.dataGridView1.Size = new System.Drawing.Size(936, 520);
             this.dataGridView1.TabIndex = 39;
             // 
             // label8
@@ -196,7 +201,7 @@
             this.label8.Font = new System.Drawing.Font("Book Antiqua", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label8.Location = new System.Drawing.Point(336, 37);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(215, 32);
+            this.label8.Size = new System.Drawing.Size(216, 32);
             this.label8.TabIndex = 40;
             this.label8.Text = "Список товаров";
             // 
@@ -468,6 +473,64 @@
             this.label9.TabIndex = 129;
             this.label9.Text = "_____________________";
             // 
+            // btnPrev
+            // 
+            this.btnPrev.BackColor = System.Drawing.Color.SlateGray;
+            this.btnPrev.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnPrev.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrev.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnPrev.ForeColor = System.Drawing.Color.Black;
+            this.btnPrev.Location = new System.Drawing.Point(532, 611);
+            this.btnPrev.Name = "btnPrev";
+            this.btnPrev.Size = new System.Drawing.Size(40, 31);
+            this.btnPrev.TabIndex = 142;
+            this.btnPrev.Text = "<";
+            this.btnPrev.UseVisualStyleBackColor = false;
+            // 
+            // btnNext
+            // 
+            this.btnNext.BackColor = System.Drawing.Color.SlateGray;
+            this.btnNext.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNext.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnNext.ForeColor = System.Drawing.Color.Black;
+            this.btnNext.Location = new System.Drawing.Point(773, 610);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(40, 31);
+            this.btnNext.TabIndex = 144;
+            this.btnNext.Text = ">";
+            this.btnNext.UseVisualStyleBackColor = false;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label5.Location = new System.Drawing.Point(393, 623);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(0, 26);
+            this.label5.TabIndex = 146;
+            // 
+            // lblPageInfo
+            // 
+            this.lblPageInfo.AutoSize = true;
+            this.lblPageInfo.BackColor = System.Drawing.Color.Transparent;
+            this.lblPageInfo.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblPageInfo.Location = new System.Drawing.Point(578, 611);
+            this.lblPageInfo.Name = "lblPageInfo";
+            this.lblPageInfo.Size = new System.Drawing.Size(0, 26);
+            this.lblPageInfo.TabIndex = 147;
+            // 
+            // lblRecordsInfo
+            // 
+            this.lblRecordsInfo.AutoSize = true;
+            this.lblRecordsInfo.BackColor = System.Drawing.Color.Transparent;
+            this.lblRecordsInfo.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblRecordsInfo.Location = new System.Drawing.Point(582, 640);
+            this.lblRecordsInfo.Name = "lblRecordsInfo";
+            this.lblRecordsInfo.Size = new System.Drawing.Size(0, 20);
+            this.lblRecordsInfo.TabIndex = 148;
+            // 
             // AdminProducts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -475,6 +538,11 @@
             this.BackgroundImage = global::MagazinTechniki.Properties.Resources.ФонГлСтр;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1233, 681);
+            this.Controls.Add(this.lblRecordsInfo);
+            this.Controls.Add(this.lblPageInfo);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.btnNext);
+            this.Controls.Add(this.btnPrev);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.pictureBox8);
             this.Controls.Add(this.linkLabelOtchet);
@@ -563,5 +631,10 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.LinkLabel linkLabelUser;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button btnPrev;
+        private System.Windows.Forms.Button btnNext;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblPageInfo;
+        private System.Windows.Forms.Label lblRecordsInfo;
     }
 }

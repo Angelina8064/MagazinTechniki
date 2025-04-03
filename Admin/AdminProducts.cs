@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Drawing.Drawing2D;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -47,13 +46,24 @@ namespace MagazinTechniki
         }
 
         string connect = Connect.conn;
-        private List<Products> products = new List<Products>(); // Список товаров
+
+        private int currentPage = 1;
+        private int pageSize = 5;
+        private int totalPages = 1;
+        private int totalViewedProducts = 0;
+        private List<Products> allProducts = new List<Products>();
+        private List<Products> filteredProducts = new List<Products>();
 
         private void AdminProducts_Load(object sender, EventArgs e)
         {
             // Настройка текста поиска
             textBoxPoisk.Text = "Поиск";
             textBoxPoisk.ForeColor = SystemColors.GrayText;
+
+            // Настройка обработчиков для кнопок пагинации
+            btnPrev.Click += (s, e1) => GoToPage(currentPage - 1);
+            btnNext.Click += (s, e1) => GoToPage(currentPage + 1);
+
 
             // Загрузка товаров из БД
             ListProductsFromDatabase();
@@ -114,57 +124,47 @@ namespace MagazinTechniki
         // Загрузка продуктов из базы данных
         private void ListProductsFromDatabase()
         {
-            products.Clear();
+            allProducts.Clear();
             using (MySqlConnection connection = new MySqlConnection(connect))
             {
                 connection.Open();
 
-                // SQL запрос с JOIN для получения связанных данных
                 string query = @"
-                            SELECT 
-                                p.ProductArticleNumber AS Id,
-                                p.ProductName AS Name,
-                                p.ProductCost AS Cost,
-                                p.ProductDiscount AS Discount,
-                                p.ProductManufacturer AS Manufacturer,
-                                s.SupplierName AS SupplierName,  
-                                c.CategoryName AS CategoryName, 
-                                p.ProductQuantityInStock AS QuantityInStock,
-                                p.ProductDescription AS Description,
-                                p.ProductPhoto AS ProductPhoto
-                            FROM product p
-                            LEFT JOIN supplier s ON p.ProductSupplierID = s.SupplierID
-                            LEFT JOIN category c ON p.ProductCategoryID = c.CategoryID";
+                    SELECT 
+                        p.ProductArticleNumber AS Id,
+                        p.ProductName AS Name,
+                        p.ProductCost AS Cost,
+                        p.ProductDiscount AS Discount,
+                        p.ProductManufacturer AS Manufacturer,
+                        s.SupplierName AS SupplierName,  
+                        c.CategoryName AS CategoryName, 
+                        p.ProductQuantityInStock AS QuantityInStock,
+                        p.ProductDescription AS Description,
+                        p.ProductPhoto AS ProductPhoto
+                    FROM product p
+                    LEFT JOIN supplier s ON p.ProductSupplierID = s.SupplierID
+                    LEFT JOIN category c ON p.ProductCategoryID = c.CategoryID";
 
                 MySqlCommand command = new MySqlCommand(query, connection);
                 MySqlDataReader reader = command.ExecuteReader();
 
                 while (reader.Read())
                 {
-                    // Загрузка изображения продукта
                     string imageFileName = reader["ProductPhoto"].ToString();
-
                     Image image = null;
 
                     if (!string.IsNullOrEmpty(imageFileName))
                     {
                         string imagePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Images", imageFileName);
-
-                        if (File.Exists(imagePath))
-                        {
-                            image = Image.FromFile(imagePath);
-                        }
-                        else
-                        {
-                            image = Image.FromFile(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Images", "zaglushka.jpg"));
-                        }
+                        image = File.Exists(imagePath) ?
+                            Image.FromFile(imagePath) :
+                            Image.FromFile(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Images", "zaglushka.jpg"));
                     }
                     else
                     {
                         image = Image.FromFile(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Images", "zaglushka.jpg"));
                     }
 
-                    // Проверка на NULL значения
                     if (reader["Id"] != DBNull.Value &&
                         reader["Name"] != DBNull.Value &&
                         reader["Cost"] != DBNull.Value &&
@@ -175,35 +175,90 @@ namespace MagazinTechniki
                         reader["QuantityInStock"] != DBNull.Value &&
                         reader["Description"] != DBNull.Value)
                     {
-                        string id = reader["Id"].ToString();
-                        string name = reader["Name"].ToString();
-                        decimal cost = Convert.ToDecimal(reader["Cost"]);
-                        int discount = Convert.ToInt32(reader["Discount"]);
-                        string manufacturer = reader["Manufacturer"].ToString();
-                        string supplierName = reader["SupplierName"].ToString(); 
-                        string categoryName = reader["CategoryName"].ToString(); 
-                        int quantityInStock = Convert.ToInt32(reader["QuantityInStock"]);
-                        string description = reader["Description"].ToString();
-
-                        // Создание объекта продукта
-                        products.Add(new Products
+                        allProducts.Add(new Products
                         {
-                            Id = id,
-                            Name = name,
-                            Cost = cost,
-                            Discount = discount,
-                            Manufacterer = manufacturer,
-                            SupplierName = supplierName, 
-                            CategoryName = categoryName,  
-                            QuantityInStock = quantityInStock,
-                            Description = description,
+                            Id = reader["Id"].ToString(),
+                            Name = reader["Name"].ToString(),
+                            Cost = Convert.ToDecimal(reader["Cost"]),
+                            Discount = Convert.ToInt32(reader["Discount"]),
+                            Manufacterer = reader["Manufacturer"].ToString(),
+                            SupplierName = reader["SupplierName"].ToString(),
+                            CategoryName = reader["CategoryName"].ToString(),
+                            QuantityInStock = Convert.ToInt32(reader["QuantityInStock"]),
+                            Description = reader["Description"].ToString(),
                             Image = image
                         });
                     }
                 }
                 reader.Close();
             }
-            ApplyFilterAndSort(); // Применение фильтров и сортировки
+            ApplyFilterAndSort();
+            UpdateRecordsCount();
+        }
+
+        private void UpdateRecordsCount()
+        {
+            int filteredRecords = filteredProducts.Count;
+
+            lblRecordsInfo.Text = $"Просмотрено: {totalViewedProducts} из {filteredRecords}";
+        }
+
+
+        private void UpdatePagination()
+        {
+            totalPages = (int)Math.Ceiling((double)filteredProducts.Count / pageSize);
+            if (totalPages == 0) totalPages = 1;
+
+            if (currentPage > totalPages)
+                currentPage = totalPages;
+
+            lblPageInfo.Text = $"Страница {currentPage} из {totalPages}";
+
+            // Обновляем состояние кнопок
+            btnPrev.Enabled = currentPage > 1;
+            btnNext.Enabled = currentPage < totalPages;
+
+            UpdateDataGridView();
+        }
+
+        private void UpdateDataGridView()
+        {
+            var pagedProducts = filteredProducts
+               .Skip((currentPage - 1) * pageSize)
+               .Take(pageSize)
+               .ToList();
+
+            dataGridView1.DataSource = pagedProducts;
+
+            // Обновляем счетчик просмотренных товаров
+            if (currentPage == 1)
+            {
+                totalViewedProducts = pagedProducts.Count;
+            }
+            else if (currentPage > 1 && pagedProducts.Count > 0)
+            {
+                // При переходе вперед увеличиваем счетчик
+                if (currentPage * pageSize > totalViewedProducts)
+                {
+                    totalViewedProducts += pagedProducts.Count;
+                }
+                // При переходе назад уменьшаем счетчик
+                else if (currentPage * pageSize < totalViewedProducts)
+                {
+                    totalViewedProducts -= pageSize;
+                }
+            }
+
+            UpdateRecordsCount();
+        }
+
+        private void GoToPage(int pageNumber)
+        {
+            if (pageNumber < 1) pageNumber = 1;
+            if (pageNumber > totalPages) pageNumber = totalPages;
+
+            currentPage = pageNumber;
+            UpdatePagination();
         }
 
         //блокировка кнопок удалить и редактирвать
@@ -239,28 +294,26 @@ namespace MagazinTechniki
             }
 
             string selectedCategory = comboBoxFilter.SelectedItem?.ToString();
+            string selectedSort = comboBoxSort.SelectedItem?.ToString();
 
-            // Применяем фильтрацию и поиск
-            var filteredProducts = products;
+            filteredProducts = allProducts;
 
-            // Фильтрация по поиску
             if (!string.IsNullOrWhiteSpace(searchText))
             {
                 filteredProducts = filteredProducts
-                    .Where(p => p.Name.ToLower().Contains(searchText))
+                    .Where(p => p.Name.ToLower().Contains(searchText) ||
+                               p.Id.ToLower().Contains(searchText) ||
+                               p.Manufacterer.ToLower().Contains(searchText))
                     .ToList();
             }
 
-            // Фильтрация по категории
-            if (selectedCategory != "Все категории")
+            if (selectedCategory != "Все категории" && selectedCategory != null)
             {
                 filteredProducts = filteredProducts
                     .Where(p => p.CategoryName == selectedCategory)
                     .ToList();
             }
 
-            // Применяем сортировку к уже отфильтрованным данным
-            string selectedSort = comboBoxSort.SelectedItem?.ToString();
             switch (selectedSort)
             {
                 case "По возрастанию":
@@ -275,16 +328,16 @@ namespace MagazinTechniki
                         .ToList();
                     break;
 
-                case "Все":
-                    // Сортировка по артикулу (по умолчанию)
+                default:
                     filteredProducts = filteredProducts
                         .OrderBy(p => p.Id)
                         .ToList();
                     break;
             }
 
-            // Обновляем DataGridView
-            dataGridView1.DataSource = filteredProducts;
+            totalViewedProducts = 0;
+            currentPage = 1;
+            UpdatePagination();
         }
 
         // Загрузка категорий для фильтра
@@ -363,7 +416,6 @@ namespace MagazinTechniki
             if (dataGridView1.SelectedRows.Count > 0)
             {
                 var selectedRow = dataGridView1.SelectedRows[0];
-
                 return selectedRow.DataBoundItem as Products;
             }
             return null;
