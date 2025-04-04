@@ -77,6 +77,7 @@ namespace MagazinTechniki
             dataGridView1.AutoGenerateColumns = false;
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.ReadOnly = true;
+            dataGridView1.CellFormatting += DataGridView1_CellFormatting;
 
             // Добавление колонок
             dataGridView1.Columns.Clear();
@@ -194,7 +195,39 @@ namespace MagazinTechniki
             }
             ApplyFilterAndSort();
             UpdateRecordsCount();
+
+            dataGridView1.Refresh();
         }
+
+        private void DataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.RowIndex < 0 || e.RowIndex >= dataGridView1.Rows.Count) return;
+
+            var row = dataGridView1.Rows[e.RowIndex];
+            var product = row.DataBoundItem as Products;
+
+            if (product == null) return;
+
+            // Если количество меньше 5 - красный фон
+            if (product.QuantityInStock < 5)
+            {
+                row.DefaultCellStyle.BackColor = Color.Firebrick;
+                row.DefaultCellStyle.SelectionBackColor = Color.Maroon;
+            }
+            // Если скидка больше 15% - желтый фон
+            else if (product.Discount >= 15)
+            {
+                row.DefaultCellStyle.BackColor = Color.Gold;
+                row.DefaultCellStyle.SelectionBackColor = Color.Goldenrod;
+            }
+            else
+            {
+                // Сброс стиля для других строк
+                row.DefaultCellStyle.BackColor = dataGridView1.DefaultCellStyle.BackColor;
+                row.DefaultCellStyle.SelectionBackColor = Color.SlateGray;
+            }
+        }
+
 
         private void UpdateRecordsCount()
         {

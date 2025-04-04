@@ -67,6 +67,12 @@
             this.label5 = new System.Windows.Forms.Label();
             this.lblPageInfo = new System.Windows.Forms.Label();
             this.lblRecordsInfo = new System.Windows.Forms.Label();
+            this.pictureBox9 = new System.Windows.Forms.PictureBox();
+            this.labelRed = new System.Windows.Forms.Label();
+            this.labelYellow = new System.Windows.Forms.Label();
+            this.pictureBox10 = new System.Windows.Forms.PictureBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -76,15 +82,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonExit
             // 
+            this.buttonExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonExit.BackColor = System.Drawing.Color.SlateGray;
             this.buttonExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonExit.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonExit.ForeColor = System.Drawing.Color.Black;
-            this.buttonExit.Location = new System.Drawing.Point(16, 620);
+            this.buttonExit.Location = new System.Drawing.Point(16, 660);
             this.buttonExit.Name = "buttonExit";
             this.buttonExit.Size = new System.Drawing.Size(222, 43);
             this.buttonExit.TabIndex = 38;
@@ -182,6 +191,7 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.SlateGray;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -207,13 +217,14 @@
             // 
             // buttonAdd
             // 
+            this.buttonAdd.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.buttonAdd.BackColor = System.Drawing.Color.SlateGray;
             this.buttonAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAdd.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonAdd.ForeColor = System.Drawing.Color.Black;
-            this.buttonAdd.Location = new System.Drawing.Point(1060, 611);
+            this.buttonAdd.Location = new System.Drawing.Point(1081, 611);
             this.buttonAdd.Name = "buttonAdd";
-            this.buttonAdd.Size = new System.Drawing.Size(161, 43);
+            this.buttonAdd.Size = new System.Drawing.Size(140, 43);
             this.buttonAdd.TabIndex = 41;
             this.buttonAdd.Text = "Добавить";
             this.buttonAdd.UseVisualStyleBackColor = false;
@@ -221,13 +232,14 @@
             // 
             // buttonRedact
             // 
+            this.buttonRedact.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.buttonRedact.BackColor = System.Drawing.Color.SlateGray;
             this.buttonRedact.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonRedact.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonRedact.ForeColor = System.Drawing.Color.Black;
-            this.buttonRedact.Location = new System.Drawing.Point(871, 611);
+            this.buttonRedact.Location = new System.Drawing.Point(906, 610);
             this.buttonRedact.Name = "buttonRedact";
-            this.buttonRedact.Size = new System.Drawing.Size(183, 43);
+            this.buttonRedact.Size = new System.Drawing.Size(169, 43);
             this.buttonRedact.TabIndex = 42;
             this.buttonRedact.Text = "Редактировать";
             this.buttonRedact.UseVisualStyleBackColor = false;
@@ -235,6 +247,7 @@
             // 
             // textBoxPoisk
             // 
+            this.textBoxPoisk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxPoisk.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBoxPoisk.Font = new System.Drawing.Font("Book Antiqua", 14.25F);
             this.textBoxPoisk.Location = new System.Drawing.Point(558, 37);
@@ -245,6 +258,7 @@
             // 
             // comboBoxFilter
             // 
+            this.comboBoxFilter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBoxFilter.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.comboBoxFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxFilter.Font = new System.Drawing.Font("Book Antiqua", 14.25F);
@@ -257,6 +271,7 @@
             // 
             // comboBoxSort
             // 
+            this.comboBoxSort.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBoxSort.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.comboBoxSort.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxSort.Font = new System.Drawing.Font("Book Antiqua", 14.25F);
@@ -269,13 +284,14 @@
             // 
             // button1
             // 
+            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button1.BackColor = System.Drawing.Color.SlateGray;
             this.button1.BackgroundImage = global::MagazinTechniki.Properties.Resources.Корзина;
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(819, 611);
+            this.button1.Location = new System.Drawing.Point(855, 610);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(45, 43);
             this.button1.TabIndex = 46;
@@ -464,10 +480,11 @@
             // 
             // label9
             // 
+            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.Color.Transparent;
             this.label9.Font = new System.Drawing.Font("Book Antiqua", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label9.Location = new System.Drawing.Point(-3, 565);
+            this.label9.Location = new System.Drawing.Point(-3, 605);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(264, 28);
             this.label9.TabIndex = 129;
@@ -475,12 +492,13 @@
             // 
             // btnPrev
             // 
+            this.btnPrev.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnPrev.BackColor = System.Drawing.Color.SlateGray;
             this.btnPrev.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnPrev.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPrev.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnPrev.ForeColor = System.Drawing.Color.Black;
-            this.btnPrev.Location = new System.Drawing.Point(532, 611);
+            this.btnPrev.Location = new System.Drawing.Point(568, 610);
             this.btnPrev.Name = "btnPrev";
             this.btnPrev.Size = new System.Drawing.Size(40, 31);
             this.btnPrev.TabIndex = 142;
@@ -489,12 +507,13 @@
             // 
             // btnNext
             // 
+            this.btnNext.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnNext.BackColor = System.Drawing.Color.SlateGray;
             this.btnNext.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNext.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnNext.ForeColor = System.Drawing.Color.Black;
-            this.btnNext.Location = new System.Drawing.Point(773, 610);
+            this.btnNext.Location = new System.Drawing.Point(809, 609);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(40, 31);
             this.btnNext.TabIndex = 144;
@@ -503,6 +522,7 @@
             // 
             // label5
             // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -513,23 +533,94 @@
             // 
             // lblPageInfo
             // 
+            this.lblPageInfo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblPageInfo.AutoSize = true;
             this.lblPageInfo.BackColor = System.Drawing.Color.Transparent;
             this.lblPageInfo.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblPageInfo.Location = new System.Drawing.Point(578, 611);
+            this.lblPageInfo.Location = new System.Drawing.Point(614, 610);
             this.lblPageInfo.Name = "lblPageInfo";
             this.lblPageInfo.Size = new System.Drawing.Size(0, 26);
             this.lblPageInfo.TabIndex = 147;
             // 
             // lblRecordsInfo
             // 
+            this.lblRecordsInfo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblRecordsInfo.AutoSize = true;
             this.lblRecordsInfo.BackColor = System.Drawing.Color.Transparent;
             this.lblRecordsInfo.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblRecordsInfo.Location = new System.Drawing.Point(582, 640);
+            this.lblRecordsInfo.Location = new System.Drawing.Point(618, 639);
             this.lblRecordsInfo.Name = "lblRecordsInfo";
             this.lblRecordsInfo.Size = new System.Drawing.Size(0, 20);
             this.lblRecordsInfo.TabIndex = 148;
+            // 
+            // pictureBox9
+            // 
+            this.pictureBox9.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBox9.BackColor = System.Drawing.Color.Firebrick;
+            this.pictureBox9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox9.Location = new System.Drawing.Point(285, 610);
+            this.pictureBox9.Name = "pictureBox9";
+            this.pictureBox9.Size = new System.Drawing.Size(120, 27);
+            this.pictureBox9.TabIndex = 149;
+            this.pictureBox9.TabStop = false;
+            // 
+            // labelRed
+            // 
+            this.labelRed.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.labelRed.AutoSize = true;
+            this.labelRed.BackColor = System.Drawing.Color.Transparent;
+            this.labelRed.Font = new System.Drawing.Font("Book Antiqua", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelRed.Location = new System.Drawing.Point(282, 633);
+            this.labelRed.Name = "labelRed";
+            this.labelRed.Size = new System.Drawing.Size(123, 34);
+            this.labelRed.TabIndex = 150;
+            this.labelRed.Text = "- товаров на складе\n меньше 5 штук.";
+            // 
+            // labelYellow
+            // 
+            this.labelYellow.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.labelYellow.AutoSize = true;
+            this.labelYellow.BackColor = System.Drawing.Color.Transparent;
+            this.labelYellow.Font = new System.Drawing.Font("Book Antiqua", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelYellow.Location = new System.Drawing.Point(429, 633);
+            this.labelYellow.Name = "labelYellow";
+            this.labelYellow.Size = new System.Drawing.Size(112, 34);
+            this.labelYellow.TabIndex = 153;
+            this.labelYellow.Text = "- скидка на товар\n от 15%";
+            // 
+            // pictureBox10
+            // 
+            this.pictureBox10.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBox10.BackColor = System.Drawing.Color.Gold;
+            this.pictureBox10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox10.Location = new System.Drawing.Point(432, 610);
+            this.pictureBox10.Name = "pictureBox10";
+            this.pictureBox10.Size = new System.Drawing.Size(120, 27);
+            this.pictureBox10.TabIndex = 152;
+            this.pictureBox10.TabStop = false;
+            // 
+            // label11
+            // 
+            this.label11.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.Transparent;
+            this.label11.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label11.Location = new System.Drawing.Point(540, 623);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(0, 26);
+            this.label11.TabIndex = 151;
+            // 
+            // label10
+            // 
+            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.Transparent;
+            this.label10.Font = new System.Drawing.Font("Book Antiqua", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label10.Location = new System.Drawing.Point(256, 649);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(972, 28);
+            this.label10.TabIndex = 154;
+            this.label10.Text = "________________________________________________________________________________";
             // 
             // AdminProducts
             // 
@@ -537,7 +628,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::MagazinTechniki.Properties.Resources.ФонГлСтр;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1233, 681);
+            this.ClientSize = new System.Drawing.Size(1233, 721);
+            this.Controls.Add(this.pictureBox10);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.pictureBox9);
             this.Controls.Add(this.lblRecordsInfo);
             this.Controls.Add(this.lblPageInfo);
             this.Controls.Add(this.label5);
@@ -575,6 +669,9 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label4);
+            this.Controls.Add(this.labelYellow);
+            this.Controls.Add(this.labelRed);
+            this.Controls.Add(this.label10);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AdminProducts";
@@ -590,6 +687,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -636,5 +735,11 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lblPageInfo;
         private System.Windows.Forms.Label lblRecordsInfo;
+        private System.Windows.Forms.PictureBox pictureBox9;
+        private System.Windows.Forms.Label labelRed;
+        private System.Windows.Forms.Label labelYellow;
+        private System.Windows.Forms.PictureBox pictureBox10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label10;
     }
 }

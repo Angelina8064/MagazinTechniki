@@ -16,7 +16,7 @@ namespace MagazinTechniki
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Autorisation());
+            Application.Run(new AdminProducts());
         }
     }
 }
