@@ -76,6 +76,8 @@ namespace MagazinTechniki
             buttonRedact.Enabled = false;
             buttonDelete.Enabled = false;
             dataGridView1.SelectionChanged += DataGridView1_SelectionChanged;
+
+            dataGridView1.DoubleClick += DataGridView1_DoubleClick;
         }
 
         // Загрузка клиентов из базы данных
@@ -276,6 +278,19 @@ namespace MagazinTechniki
             else
             {
                 MessageBox.Show("Пожалуйста, выберите клиента для удаления.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void DataGridView1_DoubleClick(object sender, EventArgs e)
+        {
+            // Получаем выбранного клиента
+            Client selectedClient = GetSelectedClient();
+
+            if (selectedClient != null)
+            {
+                // Создаем и показываем форму с подробной информацией
+                AdminPersonalInfoClient infoForm = new AdminPersonalInfoClient(selectedClient);
+                infoForm.ShowDialog();
             }
         }
 

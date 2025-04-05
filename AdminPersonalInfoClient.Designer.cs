@@ -46,6 +46,7 @@ namespace MagazinTechniki
             this.maskedTextBoxTelephone.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F);
             this.maskedTextBoxTelephone.Location = new System.Drawing.Point(27, 251);
             this.maskedTextBoxTelephone.Name = "maskedTextBoxTelephone";
+            this.maskedTextBoxTelephone.ReadOnly = true;
             this.maskedTextBoxTelephone.Size = new System.Drawing.Size(229, 31);
             this.maskedTextBoxTelephone.TabIndex = 152;
             // 
@@ -67,6 +68,7 @@ namespace MagazinTechniki
             this.textBoxEmail.Location = new System.Drawing.Point(27, 317);
             this.textBoxEmail.MaxLength = 50;
             this.textBoxEmail.Name = "textBoxEmail";
+            this.textBoxEmail.ReadOnly = true;
             this.textBoxEmail.Size = new System.Drawing.Size(229, 31);
             this.textBoxEmail.TabIndex = 150;
             // 
@@ -94,6 +96,7 @@ namespace MagazinTechniki
             this.button1.Size = new System.Drawing.Size(43, 43);
             this.button1.TabIndex = 147;
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label7
             // 
@@ -113,6 +116,7 @@ namespace MagazinTechniki
             this.textBoxName.Location = new System.Drawing.Point(27, 180);
             this.textBoxName.MaxLength = 50;
             this.textBoxName.Name = "textBoxName";
+            this.textBoxName.ReadOnly = true;
             this.textBoxName.Size = new System.Drawing.Size(229, 31);
             this.textBoxName.TabIndex = 145;
             // 
@@ -123,6 +127,7 @@ namespace MagazinTechniki
             this.textBoxSurname.Location = new System.Drawing.Point(27, 108);
             this.textBoxSurname.MaxLength = 50;
             this.textBoxSurname.Name = "textBoxSurname";
+            this.textBoxSurname.ReadOnly = true;
             this.textBoxSurname.Size = new System.Drawing.Size(229, 31);
             this.textBoxSurname.TabIndex = 144;
             // 
