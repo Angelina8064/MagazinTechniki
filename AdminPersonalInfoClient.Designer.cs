@@ -33,7 +33,6 @@ namespace MagazinTechniki
             this.label3 = new System.Windows.Forms.Label();
             this.textBoxEmail = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.buttonAdd = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.textBoxName = new System.Windows.Forms.TextBox();
@@ -81,20 +80,6 @@ namespace MagazinTechniki
             this.label1.Size = new System.Drawing.Size(112, 28);
             this.label1.TabIndex = 149;
             this.label1.Text = "Телефон";
-            // 
-            // buttonAdd
-            // 
-            this.buttonAdd.BackColor = System.Drawing.Color.SlateGray;
-            this.buttonAdd.BackgroundImage = global::MagazinTechniki.Properties.Resources.Редактировать;
-            this.buttonAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.buttonAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonAdd.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonAdd.ForeColor = System.Drawing.Color.Black;
-            this.buttonAdd.Location = new System.Drawing.Point(213, 29);
-            this.buttonAdd.Name = "buttonAdd";
-            this.buttonAdd.Size = new System.Drawing.Size(43, 43);
-            this.buttonAdd.TabIndex = 148;
-            this.buttonAdd.UseVisualStyleBackColor = false;
             // 
             // button1
             // 
@@ -163,7 +148,6 @@ namespace MagazinTechniki
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textBoxEmail);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.buttonAdd);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.textBoxName);
@@ -184,7 +168,6 @@ namespace MagazinTechniki
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBoxEmail;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button buttonAdd;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox textBoxName;

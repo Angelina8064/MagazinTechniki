@@ -28,7 +28,14 @@ namespace MagazinTechniki
             public string ClientSurname { get; set; }
             public string ClientTelephone { get; set; }
             public string ClientEmail { get; set; }
-        }
+
+             // Свойства для отображения (только для чтения)
+            
+            public string DisplayName => !string.IsNullOrEmpty(ClientName) ? $"{ClientName[0]}." : "";
+            public string DisplayTelephone => !string.IsNullOrEmpty(ClientTelephone) ? 
+                $"+7 (***) ***-{ClientTelephone.Substring(Math.Max(0, ClientTelephone.Length - 5))}" : "";
+}
+
 
         string connect = Connect.conn;
         private List<Client> clients = new List<Client>(); // Список клиентов
@@ -54,10 +61,10 @@ namespace MagazinTechniki
 
             // Добавление колонок
             dataGridView1.Columns.Clear();
-
-            dataGridView1.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Имя", DataPropertyName = "ClientName" });
+            
             dataGridView1.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Фамилия", DataPropertyName = "ClientSurname" });
-            dataGridView1.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Телефон", DataPropertyName = "ClientTelephone" });
+            dataGridView1.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Имя", DataPropertyName = "DisplayName" });
+            dataGridView1.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Телефон", DataPropertyName = "DisplayTelephone" });
             dataGridView1.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Email", DataPropertyName = "ClientEmail" });
 
             // Подписка на события
